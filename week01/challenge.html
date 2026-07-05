@@ -1,0 +1,99 @@
+<main class="dashboard">
+    <article class="pipeline-card ">
+        <header class="info">
+            <h4>Service</h4><span class="badge badge--passed">Passed</span>
+        </header>
+        <p class="description-para">Commit: Fixt JWT token</p>
+        <footer class="timeline">
+            <p>Deployed an hour ago</p><button class="btn">View logs</button>
+        </footer>
+    </article>
+    <article class="pipeline-card ">
+        <header class="info">
+            <h4>Service</h4><span class="badge badge--failed">Failed</span>
+        </header>
+        <p class="description-para">Commit: Fixt JWT token</p>
+        <footer class="timeline">
+            <p>Deployed an hour ago</p><button class="btn">View logs</button>
+        </footer>
+    </article>
+    <article class="pipeline-card ">
+        <header class="info">
+            <h4>Service</h4><span class="badge badge--warning">Building</span>
+        </header>
+        <p class="description-para">Commit: Fixt JWT token</p>
+        <footer class="timeline">
+            <p>Deployed an hour ago</p><button class="btn">View logs</button>
+        </footer>
+    </article>
+</main>
+<style>
+    * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 1000px;
+        gap: 50px;
+        margin: 10px auto;
+        padding: 14px 10px;
+
+    }
+
+    .pipeline-card {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        background-color: grey;
+        border-radius: 5px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .timeline {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    .badge {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-weight: 500;
+    }
+
+    .badge--passed {
+        border: 2px dotted lawngreen;
+        border-radius: 5px;
+        background-color: greenyellow;
+    }
+
+    .badge--failed {
+        border: 2px dotted red;
+        border-radius: 5px;
+        background-color: rgb(150, 41, 41);
+    }
+
+    .badge--warning {
+        border: 2px dotted yellow;
+        border-radius: 5px;
+        background-color: rgb(151, 151, 7);
+    }
+
+    .btn {
+        padding: 4px 8px;
+
+    }
+</style>
