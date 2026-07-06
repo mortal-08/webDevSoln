@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<body>
+    <div id="todos">
+
+    </div>
+
+    <div>
+        <input type="text" placeholder="type your todo" />
+        <button id="add" onclick="addTodo()">Add</button>
+    </div>
+
+    <script>
+        let ctr = 1
+        const addTodo = () => {
+            const inputEl = document.querySelector("input")
+            const value = inputEl.value
+            const parentEl = document.querySelector("#todos")
+
+            const newDivEl = document.createElement("div")
+            newDivEl.setAttribute('id', ctr)
+
+            const newh4 = document.createElement("h4")
+            newh4.innerHTML = ctr+ ". " + value
+
+            const btn = document.createElement("button")
+            btn.innerHTML = "Delete"
+            btn.setAttribute("onclick", "deleteTodo(" + ctr + ")")
+
+            newDivEl.appendChild(newh4)
+            newDivEl.appendChild(btn)
+            parentEl.appendChild(newDivEl)
+            inputEl.value = ""
+            ctr++
+        }
+
+        const deleteTodo = (index) => {
+            const el = document.getElementById(index)
+            
+            if (el) {
+                el.parentNode.removeChild(el)
+            }
+        }
+    </script>
+</body>
+    
+    

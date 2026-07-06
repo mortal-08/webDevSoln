@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<body>
+    <div id = "todos">
+
+    </div>
+    <div>
+        <input type="text" placeholder="enter your todos" />
+        <button onclick="addTodo()">Add</button>
+    </div>
+    <script>
+        
+        const todos = []
+        const addTodo = () =>{
+            if(document.querySelector("input").value){
+            todos.push(document.querySelector("input").value)
+            render()}
+        }
+        const deleteTodo = (index) =>{
+            todos.splice(index,1)
+            render()
+        }
+        const parentEl = document.querySelector("#todos")
+        const render = () =>{
+            
+            parentEl.innerHTML=""
+            for(let i = 0;i<todos.length;i++){
+
+            const btnEl = document.createElement("button")
+            btnEl.innerHTML = "Delete"
+            btnEl.addEventListener("click", () => deleteTodo(i)); 
+
+            const h3El = document.createElement("h3")
+            h3El.textContent = i+1+". "+todos[i]
+
+            const newDivEl = document.createElement("div")
+            newDivEl.appendChild(h3El)
+            newDivEl.appendChild(btnEl)
+
+            parentEl.appendChild(newDivEl)
+        }
+        document.querySelector("input").value = ""
+        }
+    </script>
+</body>

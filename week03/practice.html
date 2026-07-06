@@ -1,0 +1,58 @@
+
+<!-- <body>
+    <div id="container">
+      <h1 class="title">Welcome to the War Room</h1>
+      <p class="text">Prepare for battle.</p>
+      <p class="text">Do not retreat.</p>
+      <button id="start-btn">Start Mission</button>
+    </div>
+    <script>
+        const heading = document.querySelector("h1")
+        const firstParagraph = document.querySelectorAll(".text")[0]
+        const secondParagraph = document.querySelectorAll(".text")[1]
+        const allParagraphs = document.querySelectorAll(".text")
+        const actionButton = document.querySelector("#start-btn")
+        heading.textContent = "DEFEND THE BASE HANABI DARK SYSTEM"
+        actionButton.style.backgroundColor = "red"
+        actionButton.style.color = "white"
+        firstParagraph.classList.add("urgent-warning")
+
+    </script>
+</body>
+<body>
+    <div id="battlefield">
+  <div id="broken-shield" class="defense">Shield at 0%</div>
+</div>
+<script>
+    const parentEl = document.querySelector("#battlefield")
+    document.querySelector("#broken-shield").remove()
+    const newBtn = document.createElement("button")
+    newBtn.innerHTML = "ACTIVATE FORCEFIELD"
+    newBtn.setAttribute("class","hero-btn") 
+    newBtn.classList.add("hero-btn") whts difference??
+    parentEl.appendChild(newBtn)
+
+</script>
+</body> -->
+<body>
+    
+    <div id="radar-screen"></div>
+    <script>
+        const enemies = [
+      { name: "Goblin", distance: 100 },
+      { name: "Orc", distance: 50 },
+      { name: "Dragon", distance: 10 }
+    ];
+    
+    const updateRadar = () =>{
+        const parentEl = document.querySelector("#radar-screen")
+        parentEl.innerHTML = ""
+        enemies.forEach((obj)=>{
+            const newDivEl = document.createElement("div")
+            newDivEl.textContent = obj["name"]+" is "+obj.distance+" m away."
+            parentEl.appendChild(newDivEl)
+        })
+    }
+    updateRadar()
+    </script>
+</body>

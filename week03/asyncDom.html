@@ -1,0 +1,39 @@
+<div id="monitoring-station">
+  <h2>Server Health Dashboard</h2>
+  <input id="inp" type="text" placeholder="enter your server url" />
+  <button id="scan-btn" onclick="scan()">Scan Servers</button>
+  <div id="loading-spinner" style="display: none">Scanning...</div>
+  <ul id="server-list"></ul>
+</div>
+<script>
+  let servers = [];
+  const scan = async () => {
+    const url = document.querySelector("#inp").value;
+    if (!url) {
+      alert("Please enter a valid URL!");
+      return;
+    }
+    const lodadingSpinner = document.querySelector("#loading-spinner");
+    lodadingSpinner.style.display = "block";
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      servers = data;
+      lodadingSpinner.style.display = "none";
+      renderServers();
+    } catch (error) {
+      console.error("Can't fetch data, Error: ", error);
+    } finally {
+      lodadingSpinner.style.display = "none";
+    }
+  };
+  const renderServers = () => {
+    const parentEl = document.getElementById("server-list");
+    parentEl.innerHTML = "";
+    servers.forEach((obj) => {
+      const newLi = document.createElement("li");
+      newLi.textContent = `${obj.name} - Status: ONLINE`;
+      parentEl.appendChild(newLi);
+    });
+  };
+</script>

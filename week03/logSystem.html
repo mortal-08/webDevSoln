@@ -1,0 +1,37 @@
+<div id="command-center">
+  <h2>Mission Log</h2>
+  <input type="text" id="mission-input" placeholder="Enter mission name...">
+  <button id="add-mission-btn">Add Mission</button>
+  
+  <ul id="mission-list">
+    </ul>
+</div>
+<script>
+    let missions = []
+    document.querySelector("button").addEventListener("click",()=>{
+        const inp = document.querySelector("input")
+        missions.push(inp.value)
+        inp.value = ""
+        renderMissions()
+    })
+    const done = (index)=>{
+        missions.splice(index,1)
+        renderMissions()
+    }
+    const renderMissions = ()=>{
+        const missionList = document.querySelector("#mission-list")
+        missionList.innerHTML = ""
+        missions.forEach((name,index)=>{
+            const btn = document.createElement("button")
+            btn.textContent="❌ Done"
+            btn.addEventListener("click",()=>done(index))
+            
+            const li = document.createElement("li")
+            li.textContent = name
+            li.appendChild(btn)
+            missionList.appendChild(li)
+
+        })
+        
+    }
+</script>
