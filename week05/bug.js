@@ -2,11 +2,11 @@ async function fetchActiveClusters() {
     try {
         const response = await fetch('https://api.internal-devops.com/v1/clusters', {
             method: 'POST',
-            body: JSON.stringify({ role: "admin" }),
+            body: JSON.stringify({ role: "admin" }), //stringify here or it will do text coercion
             headers: { 'Authorization': 'Bearer token_123' }
         })
     
-        if(!response.ok){
+        if(!response.ok){ // fetch doesn't catch status error codes!!
             throw new Error(`HTTP Error! Status:${response.status}`)
         }
 
